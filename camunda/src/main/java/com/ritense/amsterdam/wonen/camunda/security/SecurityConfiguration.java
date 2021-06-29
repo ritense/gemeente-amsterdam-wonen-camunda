@@ -24,7 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .disable()
                 .addFilterBefore(new ApiKeyAuthenticationFilter(apiKey), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .anyRequest()
+                .antMatchers("/engine-rest/**")
                 .fullyAuthenticated();
     }
 }
